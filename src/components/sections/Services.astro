@@ -1,0 +1,122 @@
+---
+import { SECTION_IDS } from "../../data/site";
+import FeatureBanner from "./Services/FeatureBanner.astro";
+import ServicesCarousel from "./Services/ServicesCarousel.astro";
+import ServicesHeader from "./Services/ServicesHeader.astro";
+---
+
+<section id={SECTION_IDS.services} class="overflow-hidden bg-surface py-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <ServicesHeader />
+        <ServicesCarousel />
+    </div>
+</section>
+
+<section id={SECTION_IDS.feature} class="overflow-hidden bg-page py-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <FeatureBanner />
+    </div>
+</section>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+></script>
+<script>
+    interface SwiperContainerElement extends HTMLElement {
+        initialize: () => void;
+        slidesPerView?: number;
+        spaceBetween?: number;
+        navigation?: {
+            nextEl: string;
+            prevEl: string;
+        };
+        pagination?: {
+            clickable: boolean;
+            dynamicBullets: boolean;
+        };
+        autoplay?: {
+            delay: number;
+            disableOnInteraction: boolean;
+        };
+        breakpoints?: Record<number, { slidesPerView: number }>;
+    }
+
+    const initSwiper = async () => {
+        await customElements.whenDefined("swiper-container");
+
+        const swiperEl = document.querySelector<SwiperContainerElement>(
+            "#servicios .services-swiper"
+        );
+        if (!swiperEl || swiperEl.dataset.initialized === "true") return;
+
+        Object.assign(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: ".swiper-next",
+                prevEl: ".swiper-prev",
+            },
+            pagination: {
+                clickable: true,
+                dynamicBullets: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+
+        swiperEl.initialize();
+        swiperEl.dataset.initialized = "true";
+    };
+
+    const initReveal = () => {
+        const observer = new IntersectionObserver(
+            (entries, observerInstance) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observerInstance.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1,
+            }
+        );
+
+        ["servicios", "destacado"].forEach((id) => {
+            const section = document.getElementById(id);
+            if (!section) return;
+            section.querySelectorAll(".reveal").forEach((element) => {
+                observer.observe(element);
+            });
+        });
+    };
+
+    const initServicesSection = () => {
+        void initSwiper();
+        initReveal();
+    };
+
+    document.addEventListener("DOMContentLoaded", initServicesSection);
+    document.addEventListener("astro:page-load", initServicesSection);
+</script>
+
+<style>
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

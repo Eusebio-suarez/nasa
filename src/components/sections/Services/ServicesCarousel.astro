@@ -1,0 +1,31 @@
+---
+import Icon from "../../ui/Icon.astro";
+import { SERVICES_SECTION } from "../../../data/site";
+import ServiceCard from "./ServiceCard.astro";
+---
+
+<div class="relative group/swiper reveal">
+    <button
+        class="swiper-prev absolute top-[40%] z-10 hidden h-14 w-14 items-center justify-center rounded-full bg-secondary text-white shadow-lg shadow-secondary/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary/90 hover:shadow-xl hover:shadow-secondary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/30 md:inline-flex md:-left-8 xl:-left-14"
+        aria-label={SERVICES_SECTION.navigationLabels.previous}
+    >
+        <Icon name="chevron-left" size={20} />
+    </button>
+
+    <button
+        class="swiper-next absolute top-[40%] z-10 hidden h-14 w-14 items-center justify-center rounded-full bg-secondary text-white shadow-lg shadow-secondary/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary/90 hover:shadow-xl hover:shadow-secondary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/30 md:inline-flex md:-right-8 xl:-right-14"
+        aria-label={SERVICES_SECTION.navigationLabels.next}
+    >
+        <Icon name="chevron-right" size={20} />
+    </button>
+
+    <swiper-container init="false" class="services-swiper pb-16">
+        {
+            SERVICES_SECTION.items.map((service) => (
+                <swiper-slide>
+                    <ServiceCard service={service} />
+                </swiper-slide>
+            ))
+        }
+    </swiper-container>
+</div>

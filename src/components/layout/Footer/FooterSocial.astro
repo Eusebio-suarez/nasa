@@ -1,0 +1,30 @@
+---
+import Icon from "../../ui/Icon.astro";
+import { CONTACT_INFO, FOOTER_INFO } from "../../../data/site";
+---
+
+<div>
+    <h3 class="text-white font-bold font-heading mb-6 tracking-wide">
+        {FOOTER_INFO.socialTitle}
+    </h3>
+    <div class="flex flex-col gap-4">
+        <p class="text-slate-400 text-sm mb-2">
+            {FOOTER_INFO.socialDescription}
+        </p>
+        <div class="flex gap-4">
+            {
+                CONTACT_INFO.socialLinks.map((link) => (
+                    <a
+                        href={link.url}
+                        target={link.target}
+                        rel={link.rel}
+                        aria-label={link.ariaLabel ?? link.label}
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-primary transition-all hover:scale-110 hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    >
+                        <Icon name={link.icon} size={18} />
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+---
+import FooterBackground from "./Footer/FooterBackground.astro";
+import FooterBrand from "./Footer/FooterBrand.astro";
+import FooterContact from "./Footer/FooterContact.astro";
+import FooterNavigation from "./Footer/FooterNavigation.astro";
+import FooterSocial from "./Footer/FooterSocial.astro";
+---
+
+<footer
+    class="bg-slate-950 text-slate-300 py-16 lg:py-20 overflow-hidden relative border-t border-slate-800"
+>
+    <FooterBackground />
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            <FooterBrand />
+            <FooterNavigation />
+            <FooterContact />
+            <FooterSocial />
+        </div>
+    </div>
+</footer>

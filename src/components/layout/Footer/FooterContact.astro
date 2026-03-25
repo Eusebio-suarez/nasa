@@ -1,0 +1,45 @@
+---
+import Icon from "../../ui/Icon.astro";
+import { CONTACT_INFO, FOOTER_INFO } from "../../../data/site";
+---
+
+<div>
+    <h3 class="text-white font-bold font-heading mb-6 tracking-wide">
+        {FOOTER_INFO.contactTitle}
+    </h3>
+    <ul class="space-y-4">
+        {
+            CONTACT_INFO.methods.map((method) => (
+                <li>
+                    {
+                        method.actionLink ? (
+                            <a
+                                href={method.actionLink.href}
+                                target={method.actionLink.target}
+                                rel={method.actionLink.rel}
+                                aria-label={method.actionLink.ariaLabel}
+                                class="group flex items-start gap-3 text-slate-400 transition-colors hover:text-white"
+                            >
+                                <Icon
+                                    name={method.icon}
+                                    size={20}
+                                    class="mt-0.5 shrink-0 text-secondary"
+                                />
+                                <span class="text-sm">{method.value}</span>
+                            </a>
+                        ) : (
+                            <div class="group flex items-start gap-3 text-slate-400">
+                                <Icon
+                                    name={method.icon}
+                                    size={20}
+                                    class="mt-0.5 shrink-0 text-secondary"
+                                />
+                                <span class="text-sm">{method.value}</span>
+                            </div>
+                        )
+                    }
+                </li>
+            ))
+        }
+    </ul>
+</div>

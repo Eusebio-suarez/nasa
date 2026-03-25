@@ -1,0 +1,22 @@
+---
+import Icon from "./Icon.astro";
+import type { IconName } from "../../types/site";
+
+interface Props {
+    label: string;
+    icon?: IconName;
+    class?: string;
+}
+
+const { label, icon = "sparkles", class: className = "" } = Astro.props;
+---
+
+<div
+    class:list={[
+        "inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-primary",
+        className,
+    ]}
+>
+    <Icon name={icon} size={14} class="animate-pulse" />
+    {label}
+</div>

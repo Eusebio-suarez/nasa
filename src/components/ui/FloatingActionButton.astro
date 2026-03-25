@@ -1,0 +1,15 @@
+---
+import { FLOATING_ACTION } from "../../data/site";
+import Icon from "./Icon.astro";
+---
+
+<a
+    href={FLOATING_ACTION.action.href}
+    target={FLOATING_ACTION.action.target}
+    rel={FLOATING_ACTION.action.rel}
+    aria-label={FLOATING_ACTION.srLabel}
+    class="fixed bottom-5 right-5 z-50 flex items-center justify-center rounded-full bg-primary p-4 text-white shadow-xl shadow-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-primary/90 hover:shadow-2xl hover:shadow-primary/35 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/30 sm:bottom-8 sm:right-8"
+>
+    <Icon name={FLOATING_ACTION.icon} size={28} class="h-7 w-7" />
+    <span class="sr-only">{FLOATING_ACTION.srLabel}</span>
+</a>

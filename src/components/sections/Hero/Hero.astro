@@ -1,0 +1,20 @@
+---
+import { SECTION_IDS } from "../../../data/site";
+import HeroDecorations from "./HeroDecorations.astro";
+import HeroContent from "./HeroContent.astro";
+import HeroImage from "./HeroImage.astro";
+---
+
+<section
+    id={SECTION_IDS.home}
+    class="relative min-h-[calc(100vh-120px)] flex items-center overflow-hidden"
+>
+    <HeroDecorations />
+
+    <div
+        class="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] gap-12 xl:gap-16 items-center w-full py-12"
+    >
+        <HeroContent />
+        <HeroImage />
+    </div>
+</section>

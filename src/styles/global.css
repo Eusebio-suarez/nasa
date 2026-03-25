@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --color-primary: var(--theme-color-primary);
+  --color-secondary: var(--theme-color-secondary);
+  --color-accent: var(--theme-color-accent);
+  --color-surface: var(--theme-color-surface);
+  --color-page: var(--theme-color-page);
+  --color-soft: var(--theme-color-soft);
+  --color-text: var(--theme-color-text);
+  --color-border: var(--theme-color-border);
+
+  --font-sans: var(--theme-font-body);
+  --font-heading: var(--theme-font-heading);
+}
+
+@tailwind utilities;
+
+body {
+  background-color: var(--theme-color-page);
+  color: var(--theme-color-text);
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 1000ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-left {
+    transform: translateX(-40px);
+  }
+
+  .reveal-right {
+    transform: translateX(40px);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

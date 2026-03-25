@@ -1,0 +1,44 @@
+---
+import { SECTION_IDS } from "../../data/site";
+import ContactCard from "./Contact/ContactCard.astro";
+import ContactHeader from "./Contact/ContactHeader.astro";
+import ContactVisual from "./Contact/ContactVisual.astro";
+---
+
+<section id={SECTION_IDS.contact} class="overflow-hidden bg-soft py-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <ContactHeader />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ContactCard />
+            <ContactVisual />
+        </div>
+    </div>
+</section>
+
+<script>
+    const initObserver = () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.15,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const section = document.getElementById("contacto");
+        if (section) {
+            const revealElements = section.querySelectorAll(".reveal");
+            revealElements.forEach((el) => observer.observe(el));
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", initObserver);
+    document.addEventListener("astro:page-load", initObserver);
+</script>

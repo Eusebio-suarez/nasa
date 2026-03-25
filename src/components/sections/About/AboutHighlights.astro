@@ -1,0 +1,24 @@
+---
+import Icon from "../../ui/Icon.astro";
+import { ABOUT_SECTION } from "../../../data/site";
+---
+
+<div class="grid sm:grid-cols-2 gap-8 mb-12">
+    {
+        ABOUT_SECTION.highlights.map((highlight) => (
+            <div class="space-y-4">
+                <div
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-lg shadow-secondary/10"
+                >
+                    <Icon name={highlight.icon} size={24} />
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">
+                    {highlight.title}
+                </h3>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                    {highlight.description}
+                </p>
+            </div>
+        ))
+    }
+</div>

@@ -1,0 +1,62 @@
+---
+interface Props {
+    variant?: "primary" | "outline" | "ghost";
+    size?: "sm" | "md" | "lg";
+    class?: string;
+    href?: string;
+    ariaLabel?: string;
+    target?: "_blank" | "_self" | "_parent" | "_top";
+    rel?: string;
+    type?: "button" | "submit" | "reset";
+}
+
+const {
+    variant = "primary",
+    size = "md",
+    class: className = "",
+    href,
+    ariaLabel,
+    target,
+    rel,
+    type = "button",
+} = Astro.props;
+
+const baseClasses =
+    "rounded-full font-bold transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary active:scale-[0.98]";
+
+const variants = {
+    primary:
+        "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 group hover:shadow-xl hover:shadow-primary/30",
+    outline:
+        "bg-surface text-secondary border-2 border-secondary/10 hover:bg-secondary hover:text-white hover:border-secondary",
+    ghost: "text-text hover:text-primary hover:bg-primary/5",
+};
+
+const sizes = {
+    sm: "px-6 py-2.5 text-sm",
+    md: "px-8 py-3.5 text-base",
+    lg: "px-10 py-5 text-lg",
+};
+---
+
+{
+    href ? (
+        <a
+            href={href}
+            aria-label={ariaLabel}
+            target={target}
+            rel={rel}
+            class:list={[baseClasses, variants[variant], sizes[size], className]}
+        >
+            <slot />
+        </a>
+    ) : (
+        <button
+            type={type}
+            aria-label={ariaLabel}
+            class:list={[baseClasses, variants[variant], sizes[size], className]}
+        >
+            <slot />
+        </button>
+    )
+}

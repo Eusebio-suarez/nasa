@@ -1,0 +1,27 @@
+---
+import { CONTACT_SECTION } from "../../../data/site";
+---
+
+<div
+    class="reveal reveal-right relative h-full min-h-[400px] overflow-hidden rounded-[2.5rem] border border-border bg-slate-200 shadow-inner lg:min-h-[600px]"
+>
+    {
+        CONTACT_SECTION.visual.type === "map" ? (
+            <iframe
+                src={CONTACT_SECTION.visual.embedUrl}
+                title={CONTACT_SECTION.visual.title ?? CONTACT_SECTION.title}
+                class="absolute inset-0 h-full w-full border-0"
+                allowfullscreen={true}
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            />
+        ) : (
+            <img
+                src={CONTACT_SECTION.visual.image.src}
+                alt={CONTACT_SECTION.visual.image.alt}
+                class="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+            />
+        )
+    }
+</div>

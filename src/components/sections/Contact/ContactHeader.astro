@@ -1,0 +1,17 @@
+---
+import SectionBadge from "../../ui/SectionBadge.astro";
+import { CONTACT_SECTION } from "../../../data/site";
+---
+
+<div class="mb-12 reveal">
+    <SectionBadge
+        label={CONTACT_SECTION.badge}
+        icon="message-square"
+        class="w-fit"
+    />
+    <h3
+        class="mb-6 font-heading text-4xl font-bold leading-tight text-secondary md:text-5xl"
+    >
+        {CONTACT_SECTION.title}
+    </h3>
+</div>

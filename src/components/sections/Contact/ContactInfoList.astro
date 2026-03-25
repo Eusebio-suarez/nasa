@@ -1,0 +1,68 @@
+---
+import Icon from "../../ui/Icon.astro";
+import { CONTACT_INFO } from "../../../data/site";
+---
+
+<div class="space-y-8">
+    {
+        CONTACT_INFO.methods.map((method) =>
+            method.actionLink ? (
+                <a
+                    href={method.actionLink.href}
+                    target={method.actionLink.target}
+                    rel={method.actionLink.rel}
+                    aria-label={method.actionLink.ariaLabel}
+                    class="group -m-2 flex items-start gap-5 rounded-xl p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                    <div
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-primary shadow-sm transition-all group-hover:bg-primary group-hover:text-white"
+                    >
+                        <Icon name={method.icon} size={20} />
+                    </div>
+                    <div>
+                        <p
+                            class="mb-1 font-heading text-[10px] font-black uppercase tracking-widest text-slate-900"
+                        >
+                            {method.label}
+                        </p>
+                        <p class="text-lg font-medium text-slate-600">
+                            {method.value}
+                        </p>
+                        {
+                            method.description && (
+                                <p class="mt-1 max-w-sm text-sm leading-relaxed text-slate-500">
+                                    {method.description}
+                                </p>
+                            )
+                        }
+                    </div>
+                </a>
+            ) : (
+                <div class="flex items-start gap-5 p-2 -m-2">
+                    <div
+                        class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-secondary shadow-sm"
+                    >
+                        <Icon name={method.icon} size={20} />
+                    </div>
+                    <div>
+                        <p
+                            class="mb-1 font-heading text-[10px] font-black uppercase tracking-widest text-slate-900"
+                        >
+                            {method.label}
+                        </p>
+                        <p class="max-w-sm font-medium leading-relaxed text-slate-600">
+                            {method.value}
+                        </p>
+                        {
+                            method.description && (
+                                <p class="mt-1 max-w-sm text-sm leading-relaxed text-slate-500">
+                                    {method.description}
+                                </p>
+                            )
+                        }
+                    </div>
+                </div>
+            )
+        )
+    }
+</div>

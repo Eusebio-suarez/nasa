@@ -1,0 +1,86 @@
+---
+import Button from "../../ui/Button.astro";
+import Icon from "../../ui/Icon.astro";
+import SectionBadge from "../../ui/SectionBadge.astro";
+import { HERO_SECTION } from "../../../data/site";
+---
+
+<div class="fade-in-up">
+    <SectionBadge label={HERO_SECTION.badge} class="mb-8" />
+
+    <h1
+        class="mb-6 text-balance font-heading text-5xl font-black uppercase leading-[0.95] tracking-tight text-primary md:text-7xl"
+    >
+        {HERO_SECTION.title}
+        <br />
+        <span
+            class="relative text-4xl font-medium normal-case italic text-secondary md:text-6xl"
+        >
+            {HERO_SECTION.highlight}
+            <svg
+                class="absolute -bottom-2 left-0 -z-10 h-3 w-full text-primary"
+                viewBox="0 0 200 12"
+                fill="none"
+                preserveAspectRatio="none"
+            >
+                <path
+                    d="M0 10C50 10 50 2 100 2C150 2 150 10 200 10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                    stroke-linecap="round"></path>
+            </svg>
+        </span>
+    </h1>
+
+    <p class="mb-10 max-w-lg text-xl leading-relaxed text-text">
+        {HERO_SECTION.description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-5">
+        <Button
+            variant="primary"
+            href={HERO_SECTION.primaryAction.href}
+            ariaLabel={HERO_SECTION.primaryAction.ariaLabel}
+            target={HERO_SECTION.primaryAction.target}
+            rel={HERO_SECTION.primaryAction.rel}
+        >
+            {HERO_SECTION.primaryAction.label}
+            <Icon
+                name="chevron-right"
+                size={20}
+                class="group-hover:translate-x-1 transition-transform"
+            />
+        </Button>
+        {
+            HERO_SECTION.secondaryAction && (
+                <Button
+                    variant="outline"
+                    href={HERO_SECTION.secondaryAction.href}
+                    ariaLabel={HERO_SECTION.secondaryAction.ariaLabel}
+                    target={HERO_SECTION.secondaryAction.target}
+                    rel={HERO_SECTION.secondaryAction.rel}
+                >
+                    {HERO_SECTION.secondaryAction.label}
+                </Button>
+            )
+        }
+    </div>
+</div>
+
+<style>
+    .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
