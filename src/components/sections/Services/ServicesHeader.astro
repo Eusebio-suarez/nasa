@@ -4,11 +4,15 @@ import { SERVICES_SECTION } from "../../../data/site";
 ---
 
 <div class="flex flex-col mb-16 gap-6 relative z-10 reveal">
-    <SectionBadge label={SERVICES_SECTION.badge} icon="rocket" class="w-fit" />
+    <SectionBadge
+        label={SERVICES_SECTION.badge}
+        icon="rocket"
+        class="mb-8 w-fit"
+    />
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div class="max-w-2xl">
             <h2
-                class="mb-6 text-balance font-heading text-4xl font-bold leading-tight text-secondary md:text-5xl"
+                class="mb-6 text-balance font-heading text-4xl font-black uppercase leading-[0.9] tracking-[0.05em] text-secondary md:text-5xl"
             >
                 {SERVICES_SECTION.title}
             </h2>

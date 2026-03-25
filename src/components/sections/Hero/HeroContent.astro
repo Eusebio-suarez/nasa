@@ -9,26 +9,17 @@ import { HERO_SECTION } from "../../../data/site";
     <SectionBadge label={HERO_SECTION.badge} class="mb-8" />
 
     <h1
-        class="mb-6 text-balance font-heading text-5xl font-black uppercase leading-[0.95] tracking-tight text-primary md:text-7xl"
+        class="mb-6 max-w-3xl text-balance font-heading leading-[0.88]"
     >
-        {HERO_SECTION.title}
-        <br />
         <span
-            class="relative text-4xl font-medium normal-case italic text-secondary md:text-6xl"
+            class="block text-5xl font-black uppercase tracking-[0.08em] text-primary md:text-7xl"
+        >
+            {HERO_SECTION.title}
+        </span>
+        <span
+            class="mt-2 block max-w-2xl text-2xl font-extrabold uppercase tracking-[0.12em] text-secondary md:text-4xl"
         >
             {HERO_SECTION.highlight}
-            <svg
-                class="absolute -bottom-2 left-0 -z-10 h-3 w-full text-primary"
-                viewBox="0 0 200 12"
-                fill="none"
-                preserveAspectRatio="none"
-            >
-                <path
-                    d="M0 10C50 10 50 2 100 2C150 2 150 10 200 10"
-                    stroke="currentColor"
-                    stroke-width="4"
-                    stroke-linecap="round"></path>
-            </svg>
         </span>
     </h1>
 

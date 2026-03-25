@@ -3,30 +3,30 @@
 /** @type {import("./src/types/site").SiteConfig} */
 export const SITE_CONFIG = {
     brand: {
-        name: "Nexa Studio",
-        subtitle: "Servicios profesionales",
+        name: "Nasa",
+        subtitle: "Taller",
         logo: {
-            src: "/template-mark.svg",
-            alt: "Logo de Nexa Studio",
+            src: "/logo.png",
+            alt: "Logo de Taller Nasa",
         },
-        favicon: "/template-mark.svg",
+        favicon: "/icon.png",
     },
     theme: {
         colors: {
-            primary: "#5dcb6c",
-            secondary: "#1c7ba9",
-            accent: "#f59e0b",
-            surface: "#ffffff",
-            page: "#f8fafc",
-            soft: "#fdfcfb",
-            text: "#475569",
-            border: "#e2e8f0",
+            primary: "#E00000",
+            secondary: "#1F3056",
+            accent: "#E84545",
+            surface: "#FFFFFF",
+            page: "#F6F8FC",
+            soft: "#FFF4F4",
+            text: "#31415F",
+            border: "#D7DEEA",
         },
         fonts: {
-            bodyFamily: '"Inter", sans-serif',
-            headingFamily: '"Outfit", sans-serif',
+            bodyFamily: '"Manrope", sans-serif',
+            headingFamily: '"Oswald", sans-serif',
             googleFontsUrl:
-                "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap",
+                "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Oswald:wght@400;500;600;700&display=swap",
         },
     },
     navigation: {
@@ -133,11 +133,11 @@ export const SITE_CONFIG = {
     },
     sections: {
         hero: {
-            badge: "Acompañamiento estratégico",
-            title: "Creamos experiencias digitales claras para negocios",
-            highlight: "que quieren crecer con orden",
+            badge: "Confianza y precision",
+            title: "Taller Nasa",
+            highlight: "Precision que inspira confianza",
             description:
-                "Esta plantilla está pensada para adaptar branding, mensajes, SEO, contacto e imágenes desde un único archivo, sin volver a perseguir textos escondidos por todo el proyecto.",
+                "Una marca cercana y firme, pensada para transmitir seriedad, orden y confianza desde el primer contacto.",
             primaryAction: {
                 label: "Hablemos por WhatsApp",
                 kind: "whatsapp",
