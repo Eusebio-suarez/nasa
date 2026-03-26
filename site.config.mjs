@@ -1,5 +1,8 @@
 // @ts-check
 
+const CONTACT_MAP_EMBED_URL =
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3977.303764697331!2d-75.6788722!3d4.5392319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38f5080d4f05c7%3A0xb9616a8dec249b8b!2sTaller%20Nasa%20Armenia!5e0!3m2!1ses!2sco!4v1774561257114!5m2!1ses!2sco";
+
 /** @type {import("./src/types/site").SiteConfig} */
 export const SITE_CONFIG = {
     brand: {
@@ -34,11 +37,10 @@ export const SITE_CONFIG = {
             { label: "Inicio", section: "home" },
             { label: "Nosotros", section: "about" },
             { label: "Servicios", section: "services" },
-            { label: "Destacado", section: "feature" },
             { label: "Contacto", section: "contact" },
         ],
         cta: {
-            label: "Agenda una llamada",
+            label: "Agenda tu cita",
             kind: "anchor",
             value: "contact",
             ariaLabel: "Ir a la sección de contacto",
@@ -48,28 +50,28 @@ export const SITE_CONFIG = {
         methods: [
             {
                 label: "WhatsApp",
-                value: "+57 321 555 0198",
+                value: "+57 323 366 1675",
                 type: "whatsapp",
                 icon: "whatsapp",
-                description: "Respuesta rápida para dudas y cotizaciones",
+                description: "Respuesta rápida para cotizaciones y citas",
             },
             {
                 label: "Teléfono",
-                value: "+57 601 555 0101",
+                value: "+57 323 366 1675",
                 type: "phone",
                 icon: "phone",
-                description: "Horario de atención de lunes a viernes",
+                description: "Llámanos para programar tu revisión",
             },
             {
                 label: "Correo",
                 value: "hola@nexastudio.com",
                 type: "email",
                 icon: "mail",
-                description: "Cuéntanos tu proyecto con el mayor contexto posible",
+                description: "Canal alterno para consultas y solicitudes",
             },
             {
-                label: "Cobertura",
-                value: "Atención remota para Latinoamérica y reuniones presenciales en Colombia",
+                label: "Dirección",
+                value: "Cl. 15 #21a-03, Armenia, Quindío",
                 type: "location",
                 icon: "map-pin",
             },
@@ -98,34 +100,41 @@ export const SITE_CONFIG = {
     seo: {
         lang: "es",
         siteUrl: "https://example.com",
-        title: "Nexa Studio | Servicios profesionales para marcas en crecimiento",
+        title: "Taller Nasa Armenia | Mecánica general para tu vehículo",
         description:
-            "Plantilla multipropósito para negocios de servicios. Centraliza branding, textos, SEO, contacto e imágenes desde un solo archivo editable.",
+            "Taller mecánico en Armenia, Quindío. Realizamos mantenimiento preventivo, sincronización, frenos, cambio de aceite y suspensión con atención clara y confiable.",
         keywords: [
-            "plantilla web",
-            "landing page",
-            "servicios profesionales",
-            "sitio institucional",
-            "astro template",
+            "taller mecanico armenia",
+            "mantenimiento preventivo",
+            "sincronizacion carro",
+            "frenos y suspension",
+            "cambio de aceite armenia",
         ],
         image: {
             src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1600",
-            alt: "Espacio de trabajo profesional con portátil y libreta",
+            alt: "Vehículo en proceso de revisión en taller mecánico",
         },
         locale: "es_CO",
         structuredData: {
-            type: "Organization",
+            type: "LocalBusiness",
+            telephone: "+57 323 366 1675",
             sameAs: [
                 "https://instagram.com/",
                 "https://facebook.com/",
                 "https://example.com",
             ],
+            address: {
+                streetAddress: "Cl. 15 #21a-03",
+                addressLocality: "Armenia",
+                addressRegion: "Quindío",
+                addressCountry: "CO",
+            },
             contactPoints: [
                 {
                     contactType: "customer support",
-                    telephone: "+57 321 555 0198",
+                    telephone: "+57 323 366 1675",
                     email: "hola@nexastudio.com",
-                    areaServed: "Latinoamérica",
+                    areaServed: "Armenia, Quindío",
                     availableLanguage: ["Spanish"],
                 },
             ],
@@ -133,16 +142,16 @@ export const SITE_CONFIG = {
     },
     sections: {
         hero: {
-            badge: "Confianza y precision",
+            badge: "Servicio confiable en Armenia",
             title: "Taller Nasa",
-            highlight: "Precision que inspira confianza",
+            highlight: "TALLER",
             description:
-                "Una marca cercana y firme, pensada para transmitir seriedad, orden y confianza desde el primer contacto.",
+                "Brindamos mantenimiento y reparaciones mecánicas con procesos claros, tiempos responsables y atención confiable para el uso diario.",
             primaryAction: {
-                label: "Hablemos por WhatsApp",
+                label: "Agenda por WhatsApp",
                 kind: "whatsapp",
                 message:
-                    "Hola, quiero información sobre sus servicios y una propuesta para mi negocio.",
+                    "Hola, quiero agendar una revisión para mi vehículo.",
                 ariaLabel: "Abrir conversación de WhatsApp",
                 newTab: true,
             },
@@ -158,38 +167,38 @@ export const SITE_CONFIG = {
         },
         about: {
             badge: "Nosotros",
-            title: "Una base sólida para presentar tu propuesta de valor",
+            title: "Un taller de confianza para el mantenimiento de tu vehículo",
             description:
-                "La estructura conserva una narrativa simple: presentar la marca, construir confianza, explicar servicios, destacar una oferta y cerrar con un bloque de contacto claro.",
+                "Somos un taller mecánico de servicio cercano, enfocado en diagnósticos precisos y soluciones efectivas para mantener tu vehículo en óptimas condiciones.",
             image: {
                 src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200",
                 alt: "Equipo colaborando frente a un tablero con ideas",
             },
             highlights: [
                 {
-                    title: "Mensajes centralizados",
+                    title: "Diagnóstico claro",
                     description:
-                        "Nombre de marca, subtítulos, títulos, párrafos y CTA viven en la configuración principal.",
+                        "Realizamos una evaluación técnica inicial y te explicamos, de forma transparente, el estado real de tu vehículo.",
                     icon: "sparkles",
                 },
                 {
-                    title: "Fácil de reutilizar",
+                    title: "Trabajo responsable",
                     description:
-                        "Cambiar colores, imágenes, contacto o SEO no exige entrar a editar los componentes.",
+                        "Ejecutamos cada servicio con criterios de seguridad, orden y seguimiento para ofrecer resultados consistentes.",
                     icon: "shield-check",
                 },
             ],
         },
         services: {
             badge: "Servicios",
-            title: "Bloques listos para explicar tu oferta con claridad",
+            title: "Servicios esenciales para mantener tu vehículo en buen estado",
             description:
-                "Usa esta sección para mostrar tus servicios principales con títulos, descripciones, imágenes y una acción coherente con tu canal de conversión.",
+                "Atendemos los servicios más solicitados con procedimientos claros, repuestos adecuados y recomendaciones orientadas al cuidado del vehículo.",
             itemAction: {
-                label: "Solicitar información",
+                label: "Cotizar servicio",
                 kind: "whatsapp",
                 message:
-                    "Hola, quiero más información sobre {{serviceTitle}}.",
+                    "Hola, quiero cotizar {{serviceTitle}} para mi vehículo.",
                 newTab: true,
             },
             navigationLabels: {
@@ -198,113 +207,88 @@ export const SITE_CONFIG = {
             },
             items: [
                 {
-                    title: "Diagnóstico y estrategia",
+                    title: "Mantenimiento preventivo",
                     description:
-                        "Aterrizamos tus objetivos, detectamos prioridades y definimos una hoja de ruta accionable.",
+                        "Revisión periódica para anticipar fallas y extender la vida útil del vehículo.",
                     image: {
-                        src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200",
-                        alt: "Reunión estratégica con documentos y portátil",
+                        src: "/images/services/mantenimiento-preventivo.jpg",
+                        alt: "Mecánico realizando mantenimiento preventivo en motor",
                     },
                 },
                 {
-                    title: "Implementación",
+                    title: "Sincronización",
                     description:
-                        "Convertimos el plan en entregables claros, medibles y listos para ponerse en marcha.",
+                        "Ajuste de motor para mejorar el rendimiento, estabilizar el encendido y reducir consumo.",
                     image: {
-                        src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200",
-                        alt: "Persona trabajando en la implementación de un proyecto digital",
+                        src: "/images/services/sincronizacion.jpg",
+                        alt: "Ajuste de sincronización en taller mecánico",
                     },
                 },
                 {
-                    title: "Optimización continua",
+                    title: "Frenos",
                     description:
-                        "Acompañamos la mejora de resultados con ajustes, seguimiento y nuevas oportunidades.",
+                        "Inspección y cambio de pastillas o rectificación cuando aplica para frenar con seguridad.",
                     image: {
-                        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-                        alt: "Panel con métricas y gráficos de desempeño",
+                        src: "/images/services/frenos.jpg",
+                        alt: "Servicio de revisión y ajuste de frenos",
+                    },
+                },
+                {
+                    title: "Cambio de aceite",
+                    description:
+                        "Cambio de aceite y filtro según especificación para proteger el motor en uso diario.",
+                    image: {
+                        src: "/images/services/cambio-aceite.jpg",
+                        alt: "Cambio de aceite de motor en elevador",
+                    },
+                },
+                {
+                    title: "Suspensión",
+                    description:
+                        "Revisión de amortiguadores y componentes para mejorar estabilidad y confort de manejo.",
+                    image: {
+                        src: "/images/services/suspension.jpg",
+                        alt: "Revisión del sistema de suspensión del vehículo",
                     },
                 },
             ],
-        },
-        feature: {
-            badge: "Oferta destacada",
-            title: "Soporte cercano para acompañar la implementación de punta a punta",
-            description:
-                "Este bloque sirve para destacar un servicio premium, un paquete clave o una promesa diferencial con beneficios concretos y una acción directa.",
-            image: {
-                src: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&q=80&w=1200",
-                alt: "Consultora acompañando a una clienta durante una reunión",
-            },
-            benefits: [
-                {
-                    title: "Respuesta rápida",
-                    description:
-                        "Canal directo para resolver dudas y mover el proyecto sin fricción.",
-                    icon: "headphones",
-                },
-                {
-                    title: "Acompañamiento experto",
-                    description:
-                        "Decisiones mejor respaldadas con criterio, contexto y seguimiento.",
-                    icon: "badge-check",
-                },
-                {
-                    title: "Siguiente paso claro",
-                    description:
-                        "Cada entrega deja definido qué sigue y cómo medir el avance.",
-                    icon: "rocket",
-                },
-            ],
-            primaryAction: {
-                label: "Solicitar propuesta",
-                kind: "email",
-                subject: "Quiero una propuesta para mi proyecto",
-                body: "Hola, me gustaría conocer su servicio destacado y recibir una propuesta.",
-            },
-            secondaryCard: {
-                icon: "clock",
-                title: "Acompañamiento priorizado",
-                description: "Ideal para proyectos que necesitan velocidad y claridad.",
-            },
         },
         contact: {
             badge: "Contacto",
-            title: "Conversemos sobre tu próximo proyecto",
+            title: "Visítanos en Armenia o agenda tu cita por WhatsApp",
             card: {
-                eyebrow: "Estamos listos para ayudarte",
+                eyebrow: "Estamos listos para atender tu vehículo",
                 description:
-                    "Configura este bloque con tus canales reales y deja que toda la plantilla se actualice desde un solo lugar.",
+                    "Atendemos en Armenia, Quindío, con enfoque en diagnóstico, mantenimiento preventivo y reparación mecánica general.",
                 supportingText:
-                    "Puedes usar WhatsApp, teléfono, correo, una dirección física o cualquier otro método relevante para tu negocio.",
+                    "Puedes contactarnos por WhatsApp, llamada o correo para resolver dudas y coordinar tu cita.",
                 closingText:
-                    "Haz que tu equipo solo cambie la configuración, no los componentes.",
+                    "Nuestro objetivo es entregarte una solución técnica confiable y una atención profesional en cada visita.",
             },
             visual: {
-                type: "image",
-                image: {
-                    src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1200",
-                    alt: "Equipo conversando en una sala de reuniones luminosa",
-                },
+                type: "map",
+                embedUrl: CONTACT_MAP_EMBED_URL,
+                title: "Ubicación de Taller Nasa Armenia en Google Maps",
             },
         },
     },
     footer: {
         brandDescription:
-            "Usa este espacio para resumir tu propuesta de valor y reforzar la personalidad de marca con un mensaje breve y fácil de reemplazar.",
+            "Taller mecánico en Armenia enfocado en mantenimiento preventivo y reparaciones esenciales con atención cercana y responsable.",
         navigationTitle: "Navegación",
         contactTitle: "Contacto",
         socialTitle: "Síguenos",
         socialDescription:
-            "Centraliza aquí los enlaces de tus redes o canales externos desde la configuración principal.",
+            "Conoce novedades del taller y canales de atención en nuestras redes.",
     },
     floatingAction: {
         icon: "message-square",
-        srLabel: "Abrir canal de contacto rápido",
+        srLabel: "Abrir WhatsApp para agendar cita",
         action: {
             label: "Contacto rápido",
             kind: "whatsapp",
             message:
-                "Hola, quiero más información sobre sus servicios.",
+                "Hola, quiero cotizar un servicio y agendar una cita.",
             newTab: true,
         },
     },

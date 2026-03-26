@@ -12,7 +12,6 @@ export const SECTION_IDS: Record<SectionKey, string> = {
     home: "inicio",
     about: "nosotros",
     services: "servicios",
-    feature: "destacado",
     contact: "contacto",
 };
 
@@ -269,11 +268,6 @@ export const SERVICES_SECTION = {
         resolveActionLink(SITE_CONFIG.sections.services.itemAction, {
             serviceTitle,
         }),
-};
-
-export const FEATURE_SECTION = {
-    ...SITE_CONFIG.sections.feature,
-    primaryAction: resolveActionLink(SITE_CONFIG.sections.feature.primaryAction),
 };
 
 export const CONTACT_SECTION = SITE_CONFIG.sections.contact;

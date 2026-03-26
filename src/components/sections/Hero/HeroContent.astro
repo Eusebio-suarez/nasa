@@ -10,16 +10,16 @@ import { HERO_SECTION } from "../../../data/site";
 
     <h1
         class="mb-6 max-w-3xl text-balance font-heading leading-[0.88]"
-    >
-        <span
-            class="block text-5xl font-black uppercase tracking-[0.08em] text-primary md:text-7xl"
-        >
-            {HERO_SECTION.title}
-        </span>
+    >   
         <span
             class="mt-2 block max-w-2xl text-2xl font-extrabold uppercase tracking-[0.12em] text-secondary md:text-4xl"
         >
             {HERO_SECTION.highlight}
+        </span>
+        <span
+            class="block text-5xl font-black uppercase tracking-[0.08em] text-primary md:text-7xl"
+        >
+            {HERO_SECTION.title.substring(6)}
         </span>
     </h1>
 

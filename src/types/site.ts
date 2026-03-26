@@ -1,4 +1,4 @@
-export type SectionKey = "home" | "about" | "services" | "feature" | "contact";
+export type SectionKey = "home" | "about" | "services" | "contact";
 
 export type IconName =
     | "badge-check"
@@ -144,22 +144,6 @@ export interface ServicesSectionConfig {
     items: ServiceItemConfig[];
 }
 
-export interface FeatureCardConfig {
-    icon: IconName;
-    title: string;
-    description: string;
-}
-
-export interface FeatureSectionConfig {
-    badge: string;
-    title: string;
-    description: string;
-    image: MediaAssetConfig;
-    benefits: FeatureItemConfig[];
-    primaryAction: ActionLinkConfig;
-    secondaryCard?: FeatureCardConfig;
-}
-
 export interface ContactMapVisualConfig {
     type: "map";
     embedUrl: string;
@@ -264,7 +248,6 @@ export interface SiteConfig {
         hero: HeroSectionConfig;
         about: AboutSectionConfig;
         services: ServicesSectionConfig;
-        feature: FeatureSectionConfig;
         contact: ContactSectionConfig;
     };
     footer: FooterConfig;
