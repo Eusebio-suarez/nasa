@@ -161,8 +161,8 @@ export const SITE_CONFIG = {
                 value: "services",
             },
             image: {
-                src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200",
-                alt: "Equipo revisando estrategia y diseño en una mesa de trabajo",
+                src: "/logo-principal.webp",
+                alt: "Logo principal de Taller Nasa",
             },
         },
         about: {
@@ -171,8 +171,8 @@ export const SITE_CONFIG = {
             description:
                 "Somos un taller mecánico de servicio cercano, enfocado en diagnósticos precisos y soluciones efectivas para mantener tu vehículo en óptimas condiciones.",
             image: {
-                src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200",
-                alt: "Equipo colaborando frente a un tablero con ideas",
+                src: "/local.webp",
+                alt: "Vista del local de Taller Nasa",
             },
             highlights: [
                 {
@@ -211,7 +211,7 @@ export const SITE_CONFIG = {
                     description:
                         "Revisión periódica para anticipar fallas y extender la vida útil del vehículo.",
                     image: {
-                        src: "/images/services/mantenimiento-preventivo.jpg",
+                        src: "/servicio1.webp",
                         alt: "Mecánico realizando mantenimiento preventivo en motor",
                     },
                 },
@@ -220,7 +220,7 @@ export const SITE_CONFIG = {
                     description:
                         "Ajuste de motor para mejorar el rendimiento, estabilizar el encendido y reducir consumo.",
                     image: {
-                        src: "/images/services/sincronizacion.jpg",
+                        src: "/servicio2.webp",
                         alt: "Ajuste de sincronización en taller mecánico",
                     },
                 },
@@ -229,7 +229,7 @@ export const SITE_CONFIG = {
                     description:
                         "Inspección y cambio de pastillas o rectificación cuando aplica para frenar con seguridad.",
                     image: {
-                        src: "/images/services/frenos.jpg",
+                        src: "/servicio3.webp",
                         alt: "Servicio de revisión y ajuste de frenos",
                     },
                 },
@@ -238,7 +238,7 @@ export const SITE_CONFIG = {
                     description:
                         "Cambio de aceite y filtro según especificación para proteger el motor en uso diario.",
                     image: {
-                        src: "/images/services/cambio-aceite.jpg",
+                        src: "/servicio4.webp",
                         alt: "Cambio de aceite de motor en elevador",
                     },
                 },
@@ -247,7 +247,7 @@ export const SITE_CONFIG = {
                     description:
                         "Revisión de amortiguadores y componentes para mejorar estabilidad y confort de manejo.",
                     image: {
-                        src: "/images/services/suspension.jpg",
+                        src: "/servicio5.webp",
                         alt: "Revisión del sistema de suspensión del vehículo",
                     },
                 },
