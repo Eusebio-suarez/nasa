@@ -2,6 +2,8 @@
 
 const CONTACT_MAP_EMBED_URL =
     "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3977.303764697331!2d-75.6788722!3d4.5392319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38f5080d4f05c7%3A0xb9616a8dec249b8b!2sTaller%20Nasa%20Armenia!5e0!3m2!1ses!2sco!4v1774561257114!5m2!1ses!2sco";
+const SITE_URL = (process.env.PUBLIC_SITE_URL ?? process.env.SITE_URL ?? "https://www.tallernasaarmenia.com/")
+    .replace(/\/+$/, "");
 
 /** @type {import("./src/types/site").SiteConfig} */
 export const SITE_CONFIG = {
@@ -91,7 +93,7 @@ export const SITE_CONFIG = {
             },
             {
                 label: "Sitio web",
-                url: "https://example.com",
+                url: SITE_URL,
                 icon: "globe",
                 ariaLabel: "Visitar sitio web principal",
             },
@@ -99,16 +101,29 @@ export const SITE_CONFIG = {
     },
     seo: {
         lang: "es",
-        siteUrl: "https://example.com",
+        siteUrl: SITE_URL,
         title: "Taller Nasa Armenia | Mecánica general para tu vehículo",
         description:
             "Taller mecánico en Armenia, Quindío. Realizamos mantenimiento preventivo, sincronización, frenos, cambio de aceite y suspensión con atención clara y confiable.",
         keywords: [
-            "taller mecanico armenia",
-            "mantenimiento preventivo",
-            "sincronizacion carro",
-            "frenos y suspension",
-            "cambio de aceite armenia",
+            "taller mecanico en armenia",
+            "taller mecanico armenia quindio",
+            "mecanico en armenia",
+            "mecanica general en armenia",
+            "taller automotriz en armenia",
+            "mantenimiento preventivo en armenia",
+            "sincronizacion en armenia",
+            "sincronizacion carro armenia",
+            "cambio de aceite en armenia",
+            "frenos en armenia",
+            "reparacion de frenos en armenia",
+            "suspension en armenia",
+            "reparacion de suspension en armenia",
+            "diagnostico automotriz en armenia",
+            "servicio automotriz en armenia",
+            "taller para carros en armenia",
+            "mantenimiento de carros en armenia",
+            "Taller Nasa Armenia",
         ],
         image: {
             src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1600",
@@ -121,7 +136,7 @@ export const SITE_CONFIG = {
             sameAs: [
                 "https://instagram.com/",
                 "https://facebook.com/",
-                "https://example.com",
+                SITE_URL,
             ],
             address: {
                 streetAddress: "Cl. 15 #21a-03",
@@ -282,7 +297,7 @@ export const SITE_CONFIG = {
             "Conoce novedades del taller y canales de atención en nuestras redes.",
     },
     floatingAction: {
-        icon: "message-square",
+        icon: "whatsapp",
         srLabel: "Abrir WhatsApp para agendar cita",
         action: {
             label: "Contacto rápido",

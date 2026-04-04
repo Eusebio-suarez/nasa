@@ -1,21 +1,28 @@
 ---
-import { buildStructuredData, SEO_INFO, SITE_BRAND } from "../../data/site";
+import { buildStructuredData, SEO_INFO, SITE_BRAND, SITE_THEME } from "../../data/site";
 
 interface Props {
     title?: string;
     description?: string;
     image?: string;
+    imageAlt?: string;
 }
 
 const {
     title = SEO_INFO.title,
     description = SEO_INFO.description,
     image = SEO_INFO.image.src,
+    imageAlt = SEO_INFO.image.alt,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? SEO_INFO.siteUrl);
-const resolvedImageURL = new URL(image, canonicalURL).toString();
-const jsonLd = buildStructuredData(canonicalURL, image);
+const siteOrigin = Astro.site?.toString() ?? SEO_INFO.siteUrl;
+const hasPlaceholderSiteOrigin = /example\.com/i.test(siteOrigin);
+const canonicalURL = hasPlaceholderSiteOrigin
+    ? undefined
+    : new URL(Astro.url.pathname, siteOrigin);
+const resolvedImageURL = canonicalURL ? new URL(image, canonicalURL).toString() : image;
+const localeHrefLang = SEO_INFO.locale.replace("_", "-");
+const jsonLd = canonicalURL ? buildStructuredData(canonicalURL, image) : undefined;
 ---
 
 <!-- Global Metadata -->
@@ -25,7 +32,14 @@ const jsonLd = buildStructuredData(canonicalURL, image);
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+{
+    canonicalURL && (
+        <>
+            <link rel="canonical" href={canonicalURL} />
+            <link rel="alternate" hrefLang={localeHrefLang} href={canonicalURL} />
+        </>
+    )
+}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -33,25 +47,36 @@ const jsonLd = buildStructuredData(canonicalURL, image);
 <meta name="description" content={description} />
 <meta name="author" content={SITE_BRAND.name} />
 <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+/>
+<meta name="theme-color" content={SITE_THEME.colors.surface} />
+<meta
     name="keywords"
     content={SEO_INFO.keywords.join(", ")}
 />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
+{canonicalURL && <meta property="og:url" content={canonicalURL} />}
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={resolvedImageURL} />
+<meta property="og:image:alt" content={imageAlt} />
 <meta property="og:site_name" content={SITE_BRAND.name} />
 <meta property="og:locale" content={SEO_INFO.locale} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
+{canonicalURL && <meta property="twitter:url" content={canonicalURL} />}
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={resolvedImageURL} />
+<meta property="twitter:image:alt" content={imageAlt} />
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+{
+    jsonLd && (
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+    )
+}

@@ -2,7 +2,9 @@
 import "../styles/global.css";
 import {
 	FONT_STYLESHEET_URL,
+	HERO_SECTION,
 	SITE_LANGUAGE,
+	SITE_BRAND,
 	THEME_STYLE_VARS,
 } from "../data/site";
 import Footer from "../components/layout/Footer.astro";
@@ -18,6 +20,13 @@ import FloatingActionButton from "../components/ui/FloatingActionButton.astro";
 <html lang={SITE_LANGUAGE} style={THEME_STYLE_VARS}>
 	<head>
 		<SEO />
+		<link
+			rel="preload"
+			as="image"
+			href={HERO_SECTION.image.src}
+			fetchpriority="high"
+		/>
+		<link rel="preload" as="image" href={SITE_BRAND.logo.src} />
 
 		{
 			FONT_STYLESHEET_URL && (

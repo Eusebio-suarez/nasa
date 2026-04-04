@@ -18,7 +18,10 @@ const action = SERVICES_SECTION.resolveItemAction(service.title);
         <img
             src={service.image.src}
             alt={service.image.alt}
+            width="960"
+            height="640"
             loading="lazy"
+            decoding="async"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div

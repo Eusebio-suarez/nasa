@@ -3,6 +3,17 @@ import Button from "../../ui/Button.astro";
 import Icon from "../../ui/Icon.astro";
 import SectionBadge from "../../ui/SectionBadge.astro";
 import { HERO_SECTION } from "../../../data/site";
+
+const heroHeadlineHighlight = HERO_SECTION.highlight.trim();
+const fullHeroTitle = HERO_SECTION.title.trim();
+const highlightedPrefixMatch = fullHeroTitle
+    .toLowerCase()
+    .startsWith(heroHeadlineHighlight.toLowerCase());
+const heroHeadlineSecondary = (
+    highlightedPrefixMatch
+        ? fullHeroTitle.slice(heroHeadlineHighlight.length).trim()
+        : fullHeroTitle
+) || fullHeroTitle;
 ---
 
 <div class="fade-in-up">
@@ -14,12 +25,12 @@ import { HERO_SECTION } from "../../../data/site";
         <span
             class="mt-2 block max-w-2xl text-2xl font-extrabold uppercase tracking-[0.12em] text-secondary md:text-4xl"
         >
-            {HERO_SECTION.highlight}
+            {heroHeadlineHighlight}
         </span>
         <span
             class="block text-5xl font-black uppercase tracking-[0.08em] text-primary md:text-7xl"
         >
-            {HERO_SECTION.title.substring(6)}
+            {heroHeadlineSecondary}
         </span>
     </h1>
 
