@@ -253,7 +253,7 @@ export const SITE_CONFIG = {
                     description:
                         "Cambio de aceite y filtro según especificación para proteger el motor en uso diario.",
                     image: {
-                        src: "/servicio4.webp",
+                        src: "/servicio4.jpeg",
                         alt: "Cambio de aceite de motor en elevador",
                     },
                 },
@@ -262,7 +262,7 @@ export const SITE_CONFIG = {
                     description:
                         "Revisión de amortiguadores y componentes para mejorar estabilidad y confort de manejo.",
                     image: {
-                        src: "/servicio5.webp",
+                        src: "/servicio5.jpeg",
                         alt: "Revisión del sistema de suspensión del vehículo",
                     },
                 },
